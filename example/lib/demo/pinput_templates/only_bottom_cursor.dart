@@ -72,7 +72,9 @@ class _OnlyBottomCursorState extends State<OnlyBottomCursor> {
       defaultPinTheme: defaultPinTheme,
       showCursor: true,
       cursor: cursor,
-      preFilledWidget: preFilledWidget,
+      preFilledWidgetBuilder: (index) {
+        return preFilledWidget;
+      },
     );
   }
 }

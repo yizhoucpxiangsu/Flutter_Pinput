@@ -86,12 +86,15 @@ class _PinItem extends StatelessWidget {
       return _buildCursor(pinTheme);
     }
 
-    if (state.widget.preFilledWidget != null) {
-      return SizedBox(key: key, child: state.widget.preFilledWidget);
+    if (state.widget.preFilledWidgetBuilder != null) {
+      return SizedBox(key: key, child: _buildPreFilledWidget(index));
     }
 
     return Text('', key: key, style: pinTheme.textStyle);
   }
+
+  Widget? _buildPreFilledWidget(int index) =>
+      state.widget.preFilledWidgetBuilder?.call(index);
 
   Widget _buildCursor(PinTheme pinTheme) {
     if (state.widget.isCursorAnimationEnabled) {

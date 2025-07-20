@@ -66,7 +66,7 @@ class Pinput extends StatefulWidget {
     this.onTapOutside,
     this.controller,
     this.focusNode,
-    this.preFilledWidget,
+    this.preFilledWidgetBuilder,
     this.separatorBuilder,
     this.mainAxisAlignment = MainAxisAlignment.center,
     this.crossAxisAlignment = CrossAxisAlignment.start,
@@ -178,7 +178,7 @@ class Pinput extends StatefulWidget {
         followingPinTheme = null,
         disabledPinTheme = null,
         errorPinTheme = null,
-        preFilledWidget = null,
+        preFilledWidgetBuilder = null,
         pinContentAlignment = Alignment.center,
         animationCurve = Curves.easeIn,
         animationDuration = PinputConstants._animationDuration,
@@ -265,7 +265,7 @@ class Pinput extends StatefulWidget {
   final FocusNode? focusNode;
 
   /// Widget that is displayed before field submitted.
-  final Widget? preFilledWidget;
+  final JustIndexedWidgetBuilder? preFilledWidgetBuilder;
 
   /// Builds a [Pinput] separator
   /// If null SizedBox(width: 8) will be used
@@ -554,9 +554,9 @@ class Pinput extends StatefulWidget {
       ),
     );
     properties.add(
-      DiagnosticsProperty<Widget?>(
-        'preFilledWidget',
-        preFilledWidget,
+      DiagnosticsProperty<JustIndexedWidgetBuilder?>(
+        'preFilledWidgetBuilder',
+        preFilledWidgetBuilder,
         defaultValue: null,
       ),
     );
